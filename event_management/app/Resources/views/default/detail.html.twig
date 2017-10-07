@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+#read{
+	font-size:15pt;
+	color:red;
+}
+body{
+	font-family:Courier New;
+	font-weight: bold;
+}
+a{
+	color:darkred;
+}
+
+</style>
+
+<div class="row">
+
+    	<div class="col-md-8">
+            <h3 style="color:darkred;font-weight: bold;">{{events.getName()}}</h3>
+            <img class="img-responsive" src="{{events.getImagelink()}}" style="max-width:100%;">
+            
+            <p><b>Category: </b> {{events.getType()}}</p>
+            <p><b>Description: </b>{{events.getDescription()}}</p>
+            <p><b>Beginn: </b>{{events.getEventBegin()|date('Y-m-d')}}</p>
+            <p><b>End: </b>{{events.getEventEnd()|date('Y-m-d')}}</p>
+            <p><b>Capacity: </b>{{events.getCapacity()}}</p>
+            <p><b>Location: </b>{{events.getAddress()}}</p>
+            <a href="{{events.getUrl()}}"><p>{{events.getUrl()}}</p></a>
+            <p><b>Kontakt Person: </b>{{events.getContactPerson()}}</p>
+            <p><b>Tel.Nr: </b>{{events.getPhone()}}</p>
+        
+            <a href="{{path('homepage')}}">back to list</a>
+        </div>
+		</div>
+
+{% endblock %}
